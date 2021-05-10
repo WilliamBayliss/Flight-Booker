@@ -6,3 +6,4 @@ Made for the Odin Project here:
 https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails/lessons/building-advanced-forms
 
 Gained experience with nested forms, using forms to build multiple model objects, creating dropdown menus and more experience with Active Record relations & querying. My first foray into using Bootstrap for CSS classes
+
