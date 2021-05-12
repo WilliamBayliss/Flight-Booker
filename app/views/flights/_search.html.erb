@@ -1,0 +1,24 @@
+
+<%= form_with url: root_path, method: :get do |form| %>
+    <div class="row">
+        <div class="col-sm-4">
+            <%= form.label :from_airport %>
+            <%= form.select :from_airport, @airports, {}, { class: "form-control" } %>
+        </div>
+        <div class="col-sm-4">    
+            <%= form.label :to_airport %>
+            <%= form.select :to_airport, @airports, {}, { class: "form-control" } %>
+        </div>
+        <div class="col-sm-1">
+            <%= form.label :passengers %>
+            <%= form.select :passengers, [[1, 1], [2, 2], [3, 3], [4, 4]], {}, { class: "form-control" } %>
+        </div> 
+        <div class="col-sm-2">
+            <%= form.label :date %>
+            <%= form.select :date, @dates, {}, { class: "form-control" } %>
+        </div>
+        <div class="align-self-end">
+            <%= form.submit "Search Flights", class: "btn btn-success btn-md" %>
+        </div>
+    </div>
+<% end %>
