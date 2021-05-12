@@ -1,0 +1,24 @@
+<div class="container">
+    <%
+=begin%>
+ <%= form_with url: nil, |form| do %> 
+<%
+=end%>
+        <% @flights.each do |flight| %>
+        <div class="row">
+            <div class="col-sm-6 mx-auto">
+                <div class="card">
+                    <h4><%= flight.time.strftime("%H:%m") %></h4>
+                    <p>at <%= flight.origin_airport.name %></p>
+                    <small>Duration: approx. <%= flight.duration %></small>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    <%
+=begin%>
+ <% end %> 
+<%
+=end%>
+
+</div>
