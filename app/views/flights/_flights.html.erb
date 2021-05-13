@@ -1,6 +1,5 @@
 
 <div class="container">
-<% javascript_pack_tag 'flight_card_scripts' %>
     <%= form_with url: new_booking_url, method: :get do |form| %> 
            <% @flights.each do |flight| %>
                <br />
