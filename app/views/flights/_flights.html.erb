@@ -1,24 +1,35 @@
+
 <div class="container">
-    <%
-=begin%>
- <%= form_with url: nil, |form| do %> 
-<%
-=end%>
-        <% @flights.each do |flight| %>
-        <div class="row">
-            <div class="col-sm-6 mx-auto">
-                <div class="card">
-                    <h4><%= flight.time.strftime("%H:%m") %></h4>
-                    <p>at <%= flight.origin_airport.name %></p>
-                    <small>Duration: approx. <%= flight.duration %></small>
+<% javascript_pack_tag 'flight_card_scripts' %>
+    <%= form_with url: new_booking_url, method: :get do |form| %> 
+           <% @flights.each do |flight| %>
+               <br />
+               <div class="row">
+                   <div class="col-sm-6 mx-auto">
+   
+                       <div class="card" id="flight-card">
+
+                            <div class="card-header">
+                                <div class="row" style="margin-left: 10px"> 
+                                    <div class="col-sm-2">
+                                        <%= form.radio_button :flight, flight, { class: "form-check-input" } %>
+                                        <h5 class="card-title"><%= flight.time.strftime("%H:%m") %></h5>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h6 class="card-subtitle">at <%= flight.origin_airport.name %></h6>
+                                        <small>Duration: <%= flight.duration %></small>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <% end %>
-    <%
-=begin%>
- <% end %> 
-<%
-=end%>
+           <% end %>
+           <br />
+           <%= form.submit "Next", class: "btn-block btn-lg btn-success" %>
+    <% end %> 
 
 </div>
