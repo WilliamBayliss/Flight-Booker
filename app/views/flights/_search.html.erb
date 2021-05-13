@@ -9,10 +9,6 @@
             <%= form.label :to_airport %>
             <%= form.select :to_airport, @airports, {}, { class: "form-control" } %>
         </div>
-        <div class="col-sm-1">
-            <%= form.label :passengers %>
-            <%= form.select :passengers, [[1, 1], [2, 2], [3, 3], [4, 4]], {}, { class: "form-control" } %>
-        </div> 
         <div class="col-sm-2">
             <%= form.label :date %>
             <%= form.select :date, @dates, {}, { class: "form-control" } %>

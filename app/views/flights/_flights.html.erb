@@ -10,17 +10,19 @@
 
                             <div class="card-header">
                                 <div class="row" style="margin-left: 10px"> 
-                                    <div class="col-sm-2">
-                                        <%= form.radio_button :flight, flight, { class: "form-check-input" } %>
+                                    <div class="col-sm-6">
+                                        <%= form.radio_button :flight, flight.id, { class: "form-check-input" } %>
+                                        
                                         <h5 class="card-title"><%= flight.time.strftime("%H:%m") %></h5>
                                     </div>
                                     <div class="col-sm-6">
                                         <h6 class="card-subtitle">at <%= flight.origin_airport.name %></h6>
+                                        <%= form.label :passengers %>
+                                        <%= form.select :passengers, [[1, 1], [2, 2], [3, 3], [4, 4]], {}, { class: "form-control" } %>
                                         <small>Duration: <%= flight.duration %></small>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         </label>
                     </div>
