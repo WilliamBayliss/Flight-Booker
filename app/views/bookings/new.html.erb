@@ -1,3 +1,74 @@
 <div class="container-fluid">
-    OOOOOOO
+    <%= form_with model: @booking do |form| %>
+        <div class="row">
+            <div class="col-lg-4 mx-auto">
+            
+                <div class="card" id="flight-card">
+                    <div class="card-header">
+                        <div class="row" style="margin-left: 10px"> 
+                            <div class="col-sm-8">
+                                <strong>Flight ID#: <%= @flight.id %></strong>
+                                <h3 class="card-title"><%= @flight.time.strftime("%H:%m") %>, on <%= @flight.time.strftime("%d/%m/%Y") %></h3>
+                            </div>
+                            <div class="col-sm-4">
+                                <strong>Passengers: <%= @passengers %></strong>
+                            </div>
+
+                            <div class="row mx-auto">
+                                <div class="col-sm-4">  
+                                    <h6 class="card-subtitle"><%= @flight.origin_airport.name %></h6>
+                                </div>
+                                <div class="col-sm-2">  
+                                    <h3 class="card-subtitle mx-auto"> --> </h3>
+                                </div>
+                                <div class="col-sm-4">  
+
+                                    <h6 class="card-subtitle"><%= @flight.destination_airport.name %></h6>
+                                </div>  
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% @passengers.times do %>
+            <br />
+            <div class="row">
+                <div class="col-lg-4 mx-auto">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title mx-auto">Passenger Info:</h3>
+                        </div>
+                        <%= fields_for @booking.passengers.build do |passenger_info_form| %>
+                        <div class="row mx-auto">
+                            <div class="col-sm-6">    
+                            <br />
+
+                                <%= passenger_info_form.label :name %>
+                                <%= passenger_info_form.text_field :name, class: "form-control" %>
+                            <br />
+
+                            </div>
+
+                            <div class="col-sm-6">
+                            <br />
+
+                                <%= passenger_info_form.label :email %>
+                                <%= passenger_info_form.email_field :email, class: "form-control" %>
+                            <br />
+
+                            </div>
+                        </div>
+
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+            
+        <% end %>
+    <br />
+    <%= form.submit class: "btn-block btn-lg btn-success" %>
+    <% end %>
+
 </div>
