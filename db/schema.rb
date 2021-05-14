@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_12_230641) do
+ActiveRecord::Schema.define(version: 2021_05_14_185218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,8 +47,11 @@ ActiveRecord::Schema.define(version: 2021_05_12_230641) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "email"
+    t.bigint "booking_id", null: false
+    t.index ["booking_id"], name: "index_passengers_on_booking_id"
   end
 
   add_foreign_key "bookings", "flights"
   add_foreign_key "bookings", "passengers"
+  add_foreign_key "passengers", "bookings"
 end
