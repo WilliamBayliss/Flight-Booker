@@ -1,24 +1,29 @@
 
 <div class="container">
     <%= form_with url: new_booking_url, method: :get do |form| %> 
+        <br />
+        <div class="col-sm-4 mx-auto">
+            <%= form.label "Passengers:" %>
+            <%= form.select :passengers, [[1, 1], [2, 2], [3, 3], [4, 4]], {}, { class: "form-control" } %>
+        </div>
            <% @flights.each do |flight| %>
                <br />
                <div class="row">
-                   <div class="col-sm-6 mx-auto">
+                   <div class="col-sm-8 mx-auto">
                         <label>
                         <div class="card" id="flight-card">
 
                             <div class="card-header">
+                                <strong>Flight ID#: <%= flight.id %></strong>
+
                                 <div class="row" style="margin-left: 10px"> 
                                     <div class="col-sm-6">
                                         <%= form.radio_button :flight, flight.id, { class: "form-check-input" } %>
                                         
-                                        <h5 class="card-title"><%= flight.time.strftime("%H:%m") %></h5>
+                                        <h1 class="card-title"><%= flight.time.strftime("%H:%m") %></h1>
                                     </div>
                                     <div class="col-sm-6">
                                         <h6 class="card-subtitle">at <%= flight.origin_airport.name %></h6>
-                                        <%= form.label :passengers %>
-                                        <%= form.select :passengers, [[1, 1], [2, 2], [3, 3], [4, 4]], {}, { class: "form-control" } %>
                                         <small>Duration: <%= flight.duration %></small>
                                     </div>
                                 </div>
