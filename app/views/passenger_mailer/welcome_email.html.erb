@@ -6,7 +6,7 @@
   <body>
     <h1>Welcome to FlightBooker</h1>
     <p>
-      You have successfully booked a flight from <%= @booking.flight.origin_airport %> to <%= @booking.flight.destination_airport %>
+      You have successfully booked a flight from <%= @booking.flight.origin_airport.name %> to <%= @booking.flight.destination_airport.name %>
     </p>
     <p>Thanks for joining and have a great day!</p>
   </body>
