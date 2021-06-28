@@ -12,6 +12,9 @@ class BookingsController < ApplicationController
     params[:passengers].to_i.times { @booking.passengers.create(booking_params[:passenger_attributes]) }
 
     if @booking.save
+
+      PassengerMailer.with(booking: @booking).welcome_email.deliver_later
+
       flash[:notice] = "Your flight is booked!"
       redirect_to booking_path(@booking)
     else
