@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
 
     if @booking.save
 
-      PassengerMailer.with(booking: @booking).welcome_email.deliver_later
+      PassengerMailer.with(booking: @booking).welcome_email.deliver!
 
       flash[:notice] = "Your flight is booked!"
       redirect_to booking_path(@booking)
